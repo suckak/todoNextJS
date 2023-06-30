@@ -26,7 +26,7 @@ export default function CreateNote() {
     //   content,
     // });
 
-    await fetch('http://127.0.0.1:8090/api/collections/notes/records', {
+    await fetch('https://637276f5348e947299f64089.mockapi.io/notes', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

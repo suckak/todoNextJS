@@ -13,12 +13,11 @@ import CreateNote from './CreateNote';
 async function getNotes() {
   // const db = new PocketBase('http://127.0.0.1:8090');
   // const result = await db.records.getList('notes');
-  const res = await fetch(
-    'http://127.0.0.1:8090/api/collections/notes/records?page=1&perPage=30',
-    { cache: 'no-store' }
-  );
+  const res = await fetch('https://637276f5348e947299f64089.mockapi.io/notes', {
+    cache: 'no-store',
+  });
   const data = await res.json();
-  return data?.items as any[];
+  return data as any[];
 }
 
 export default async function NotesPage() {
@@ -39,14 +38,14 @@ export default async function NotesPage() {
 }
 
 function Note({ note }: any) {
-  const { id, title, content, created } = note || {};
+  const { id, title, content, createdAt } = note || {};
 
   return (
     <Link href={`/notes/${id}`}>
       <div className={styles.note}>
         <h2>{title}</h2>
         <h5>{content}</h5>
-        <p>{created}</p>
+        <p>{createdAt}</p>
       </div>
     </Link>
   );

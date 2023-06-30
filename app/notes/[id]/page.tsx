@@ -2,7 +2,7 @@ import styles from '../Notes.module.css';
 
 async function getNote(noteId: string) {
   const res = await fetch(
-    `http://127.0.0.1:8090/api/collections/notes/records/${noteId}`,
+    `https://637276f5348e947299f64089.mockapi.io/notes/${noteId}`,
     {
       next: { revalidate: 10 },
     }
